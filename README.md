@@ -1,3 +1,5 @@
+![CI](https://github.com/varnerlab/CFMG/workflows/CI/badge.svg)
+
 ## Cell Free Model Generator in Julia (CFMG)
 
 ### Installation and Requirements
