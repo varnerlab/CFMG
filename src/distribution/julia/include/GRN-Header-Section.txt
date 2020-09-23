@@ -1,0 +1,16 @@
+// ***************************************************************************** //
+#GRN::START
+// GRN record format:
+// ({, delimited list of actors}) {activates|inhibits|...} target
+//
+// Example:
+// s70 activates deGFP_ssrA
+//
+// Available actions:
+// activate, activates, activated, induce, induces, induced
+// inhibit, inhibits, inhibited, repress, represses, repressed
+
+// TODO: Put your GRN records here ... 
+
+#GRN::STOP
+// ***************************************************************************** //

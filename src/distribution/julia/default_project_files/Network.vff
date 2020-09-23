@@ -1,0 +1,72 @@
+// -------------------------------------------------------------------------------- // 
+// Copyright (c) 2020 Varnerlab
+// Robert Frederick School of Chemical and Biomolecular Engineering
+// Cornell University, Ithaca NY 14850
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+// ----------------------------------------------------------------------------- //
+
+// ***************************************************************************** //
+#TXTL-SEQUENCE::START
+// Sequence record format:
+// {X|L},{gene_symbol|protein_symbol},{RNAP_symbol|Ribosome_symbol}::sequence;
+
+
+// TODO: Put your TXTL records here ... 
+
+
+#TXTL-SEQUENCE::STOP
+// ***************************************************************************** //
+
+// ***************************************************************************** //
+#METABOLISM::START
+// Metabolism record format:
+// reaction_name (unique), [{; delimited set of ec numbers | []}],reactant_string,product_string,reversible
+//
+// Rules:
+// The reaction_name field is unique, and metabolite symbols can not have special chars or spaces
+//
+// Example:
+// R_A_syn_2,[6.3.4.13],M_atp_c+M_5pbdra+M_gly_L_c,M_adp_c+M_pi_c+M_gar_c,false
+//
+// Stochiometric coefficients are pre-pended to metabolite symbol, for example:
+// R_adhE,[1.2.1.10; 1.1.1.1],M_accoa_c+2*M_h_c+2*M_nadh_c,M_coa_c+M_etoh_c+2*M_nad_c,true
+
+// TODO: Put your METABOLISM records here ... 
+
+
+#METABOLISM::STOP
+// ***************************************************************************** //
+
+// ***************************************************************************** //
+#GRN::START
+// GRN record format:
+// ({, delimited list of actors}) {activates|inhibits|...} target
+//
+// Example:
+// s70 activates deGFP_ssrA
+//
+// Available actions:
+// activate, activates, activated, induce, induces, induced
+// inhibit, inhibits, inhibited, repress, represses, repressed
+
+// TODO: Put your GRN records here ... 
+
+#GRN::STOP
+// ***************************************************************************** //

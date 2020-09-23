@@ -1,0 +1,58 @@
+# ----------------------------------------------------------------------------------- #
+# Copyright (c) 2020 Varnerlab
+# Robert Frederick School of Chemical and Biomolecular Engineering
+# Cornell University, Ithaca NY 14850
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+# ----------------------------------------------------------------------------------- #
+
+[author_metadata]
+author_first_name="Jeffrey"
+author_last_name="Varner"
+author_email_address="jdv27@cornell.edu"
+author_address="Varnerlab, Cornell University, Ithaca NY 14850"
+job_description="This is a test model."
+job_version="1.0"
+
+# ----------------------------------------------------------------------------------- #
+# These parameters are used at generation time to set default values for models -
+[default_parameter_values]
+
+# default bounds parameters -
+default_flux_lower_bound=-100.0                         # units: concentration per time e.g., mmol/hr
+default_flux_upper_bound=100.0                          # units: concentration per time e.g., mmol/hr
+default_species_lower_bound=0.0                         # units: concentration e.g., mmol
+default_species_upper_bound=0.0                         # units: concentration e.g., mmol
+
+# modifier parameters -
+default_transcription_time_constant_modifier=1.0        # units: dimensionless
+default_translation_time_constant_modifier=1.0          # units: dimensionless
+
+# transcription (TX) control parameters -
+default_tx_control_binding_order=1.0                    # units: dimensionless
+default_tx_control_binding_saturation_constant=10.0     # units: concentration e.g., mmol
+default_tx_background_weight=1e-6                       # units: dimensionless
+default_tx_weight=1.0                                   # units: dimensionless                           
+
+# model type prefixes -
+gene_type_prefix="GENE"                                 # pre-appended to gene symbols
+mRNA_type_prefix="MRNA"                                 # pre-appended to mRNA symbols
+protein_type_prefix="PROTEIN"                           # pre-appended to protein symbols
+tRNA_type_prefix="TRNA"                                 # pre-appended to tRNA symbols
+# ----------------------------------------------------------------------------------- #

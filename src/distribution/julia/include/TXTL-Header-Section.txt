@@ -1,0 +1,11 @@
+// ***************************************************************************** //
+#TXTL-SEQUENCE::START
+// Sequence record format:
+// {X|L},{gene_symbol|protein_symbol},{RNAP_symbol|Ribosome_symbol}::sequence;
+
+
+// TODO: Put your TXTL records here ... 
+
+
+#TXTL-SEQUENCE::STOP
+// ***************************************************************************** //

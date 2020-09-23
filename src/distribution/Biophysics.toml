@@ -1,0 +1,90 @@
+# TOML markup for default cell free biophysical parameters -
+
+# Meta data -
+[metadata]
+title = "Default cell free parameters"
+author = "Varnerlab"
+version = "1.0"
+
+
+[kinetic_constants]
+[kinetic_constants.R_gp_1]
+ec_number = "2.4.1.1"
+enzyme_concentration_nM = "27.5196655091772"
+turnover_rate_inv_s = "50.5"
+
+
+
+# === Parameters associated with TX/TL part of the model ================================ #
+[biophysical_constants]
+
+# --- TRANSCRIPTION PARAMETERS ---------------------------------------------------------- #
+# Transcription saturation constant -
+[biophysical_constants.transcription_saturation_constant]
+value = "0.0136"
+units = "\\mu{M}"
+
+# Characteristic initiation time for transcription -
+[biophysical_constants.characteristic_initiation_time_transcription]
+value = "22.0"
+units = "s"
+
+# Characteristic transcription elongation rate constant -
+[biophysical_constants.transcription_elongation_rate]
+value = "25.0"
+units = "nt/s"
+
+# Characteristic transcription elongation rate constant -
+[biophysical_constants.RNAPII_concentration]
+value = "0.0675"
+units = "\\mu{M}"
+
+# Characteristic transcript length in nt -
+[biophysical_constants.characteristic_transcript_length]
+value = "1000.0"
+units = "nt"
+# --------------------------------------------------------------------------------------- #
+
+# --- TRANSLATION PARAMETERS ------------------------------------------------------------ #
+# Translation saturation constant -
+[biophysical_constants.translation_saturation_constant]
+value = "100.0"
+units = "\\mu{M}"
+
+# Characteristic initiation time for translation -
+[biophysical_constants.characteristic_initiation_time_translation]
+value = "1.5"
+units = "s"
+
+# Characteristic translation elongation rate constant -
+[biophysical_constants.translation_elongation_rate]
+value = "1.65"
+units = "aa/s"
+
+# Characteristic polysome number -
+[biophysical_constants.polysome_number]
+value = "10.0"
+units = "unit"
+
+# Characteristic transcription elongation rate constant -
+[biophysical_constants.ribosome_concentration]
+value = "2.3"
+units = "\\mu{M}"
+
+# Characteristic protein length in aa -
+[biophysical_constants.characteristic_protein_length]
+value = "333.0"
+units = "aa"
+# --------------------------------------------------------------------------------------- #
+
+# --- DEGRADATION PARAMETERS ------------------------------------------------------------ #
+# Characterisitc mRNA half-life -
+[biophysical_constants.mRNA_half_life_in_hr]
+value = "0.290833"
+units = "hr"
+
+# Characteristic protein half-life -
+[biophysical_constants.protein_half_life_in_hr]
+value = "70.0"
+units = "hr"
+# --------------------------------------------------------------------------------------- #
