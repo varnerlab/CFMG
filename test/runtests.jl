@@ -3,7 +3,7 @@ using Test
 
 # write a default test -
 function default_cfmg_test()
-    return false 
+    return true 
 end
 
 # setup the test set for the code generator -
