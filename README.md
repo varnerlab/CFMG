@@ -3,37 +3,37 @@
 ## Cell Free Model Generator in Julia (CFMG)
 
 ### Installation and Requirements
-``JuCFMG.jl`` is organized as a [Julia](http://julialang.org) package which 
+``CFMG.jl`` is organized as a [Julia](http://julialang.org) package which 
 can be installed in the ``package mode`` of Julia.
 
 Start of the [Julia REPL](https://docs.julialang.org/en/v1/stdlib/REPL/index.html) and enter the ``package mode`` using the ``]`` key (to get back press the ``backspace`` or ``^C`` keys). Then, at the prompt enter:
 
-    (v1.1) pkg> add https://github.com/varnerlab/JuCFMG.git
+    (v1.1) pkg> add https://github.com/varnerlab/CFMG.git
 
-This will install the ``JuCFMG.jl`` package and the other required packages.
-``JuGRN.jl`` requires Julia 1.3.x and above.
+This will install the ``CFMG.jl`` package and the other required packages.
+``CFMG.jl`` requires Julia 1.5.x and above.
 
-``JuCFMG.jl`` is open source, available under a [MIT software license](https://github.com/varnerlab/JuCFMG/blob/master/LICENSE).
+``CFMG.jl`` is open source, available under a [MIT software license](https://github.com/varnerlab/JuCFMG/blob/master/LICENSE).
 You can download this repository as a zip file, clone or pull it by using the command (from the command-line):
 
-	$ git pull https://github.com/varnerlab/JuCFMG.git
+	$ git pull https://github.com/varnerlab/CFMG.git
 
 or
 
-	$ git clone https://github.com/varnerlab/JuCFMG.git
+	$ git clone https://github.com/varnerlab/CFMG.git
 
 ### How do I generate model code?
 To generate cell free model code, first load the ``JuCFMG`` package, then generate a default project, add content to the ``Network.vff`` model file (and optionally update ``Default.toml`` with your values), and then generate code using the ``make_*_model`` family of commands. 
 To generate a default project structure, use the commands:
 
-    julia> using JuCFMG
+    julia> using CFMG
     julia> generate_default_project(<path to project dir>)
 
 The ``generate_default_project`` command writes a blank  ``Network.vff`` model file, and a ``Defaults.toml`` file to the user specified path. 
 If a directory already exists at the user specified location, it is backed-up before new code is written. After you have generated a default project structure, 
 add content to the ``Network.vff`` model file. Lastly, issue the command ``make_*_model`` from the REPL:
 
-    julia> using JuCFMG
+    julia> using CFMG
     julia> make_julia_model(<path to model file>, <path where files will be written>)
 
 In addition to [Julia](http://julialang.org), you can generate cell free model code for the [Octave](https://www.gnu.org/software/octave/), [Python 3.x](https://www.python.org) and [COBRA package in MATLAB](https://opencobra.github.io/cobratoolbox/stable/) environments. In these cases, issue the language specific commands, ``make_octave_model``, ``make_python_model`` or ``make_matlab_model``. The [MATLAB/COBRA](https://opencobra.github.io/cobratoolbox/stable/) command ``make_matlab_model`` generates a COBRA-compatible [MATLAB MAT-file](https://www.mathworks.com/help/matlab/import_export/mat-file-versions.html) while the other commands generate fully editable source code. 
@@ -45,7 +45,7 @@ variety of platforms.
 
 
 ### How is the model file structured?
-``JuCFMG.jl`` transforms a structured text file into cell free model code. ``JuCFMG.jl`` text files consist of delimited record types organized into 
+``CFMG.jl`` transforms a structured text file into cell free model code. ``CFMG.jl`` text files consist of delimited record types organized into 
 four sections ``TXTL-SEQUENCE``, ``METABOLISM``, ``GRN`` and ``PARAMETERS``.
 
 #### METABOLISM records
