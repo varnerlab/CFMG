@@ -49,7 +49,9 @@ variety of platforms.
 four sections ``TXTL-SEQUENCE``, ``METABOLISM``, ``GRN`` and ``PARAMETERS``.
 
 #### METABOLISM records
-Record structure documented here.
+``METABOLISM`` records are used to encode metabolic reactions. ``METABOLISM`` records consist of five fields. 
+
+	reaction_name (unique), [{; delimited set of ec numbers | []}],reactant_string,product_string, reversible
 
 #### TXTL-SEQUENCE records
 ``TXTL-SEQUENCE`` records are used to generate sequence specific transcription and translation reactions which are appended to the end of the metabolic reactions 
