@@ -1,5 +1,5 @@
 function iterate_parameters_grn_control_control_connection(gene_object::VLSpeciesSymbol, list_of_connections::Array{VLGRNConnectionObject}, 
-    default_parameter_dictionary::Dict{AbstractString,Any})
+    default_parameter_dictionary::Dict{String,Any})
 
     # get default values -
     default_tx_weight = default_parameter_dictionary["default_tx_weight"]
@@ -25,7 +25,7 @@ function iterate_parameters_grn_control_control_connection(gene_object::VLSpecie
 end
   
 function iterate_parameters_grn_binding_control_connection(gene_object::VLSpeciesSymbol,list_of_connections::Array{VLGRNConnectionObject}, 
-    default_parameter_dictionary::Dict{AbstractString,Any})
+    default_parameter_dictionary::Dict{String,Any})
   
     # get default values -
     default_tx_control_binding_order = default_parameter_dictionary["default_tx_control_binding_order"]

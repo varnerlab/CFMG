@@ -5,6 +5,7 @@ using DelimitedFiles
 using MAT
 using Logging
 using LightXML
+using TOML
 
 # constants -
 const path_to_package = dirname(pathof(@__MODULE__))

@@ -43,7 +43,7 @@ end
 function parse_protein_seq(protein_seq::String)
 end
 
-function compute_sequence_length(local_sequence::AbstractString)
+function compute_sequence_length(local_sequence)
 
   # initialize -
   sequence_count = 0
@@ -60,7 +60,7 @@ function compute_sequence_length(local_sequence::AbstractString)
   return sequence_count
 end
 
-function build_translation_reaction_buffer_for_protein_sequence(protein_name::String, enzymeSymbol::String, protein_seq::String, configuration_dictionary::Dict{AbstractString,Any})
+function build_translation_reaction_buffer_for_protein_sequence(protein_name::String, enzymeSymbol::String, protein_seq::String, configuration_dictionary::Dict{String,Any})
 
     # get default values for biological types -
     MRNA_type = configuration_dictionary["mRNA_type_prefix"]
@@ -137,7 +137,7 @@ function build_translation_reaction_buffer_for_protein_sequence(protein_name::St
     return buffer;
 end
 
-function build_transcription_reaction_buffer_for_gene_sequence(gene_name::String, enzymeSymbol::String, gene_seq::String, configuration_dictionary::Dict{AbstractString,Any})
+function build_transcription_reaction_buffer_for_gene_sequence(gene_name::String, enzymeSymbol::String, gene_seq::String, configuration_dictionary::Dict{String,Any})
 
     # get default values for biological types -
     MRNA_type = configuration_dictionary["mRNA_type_prefix"]

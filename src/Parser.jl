@@ -89,7 +89,7 @@ function parse_grn_section(grn_section_buffer::Array{String,1})
 end
 
 
-function parse_vff_sequence_section(seq_section_buffer::Array{String,1}, configuration_dictionary::Dict{AbstractString,Any})
+function parse_vff_sequence_section(seq_section_buffer::Array{String,1}, configuration_dictionary::Dict{String,Any})
   
   # initialize -
   tmp_buffer::String = "";
