@@ -17,7 +17,7 @@ function _build_sbml_species_section(problem_dictionary::Dict{String,Any})::Arra
         species_symbol = species.species_symbol
 
         # tmp line -
-        tmp_line = "\t<species id=\"$(species_symbol)\" compartment=\"default\" boundaryCondition=\"false\"/>\n"
+        tmp_line = "\t<species id=\"$(species_symbol)\" name=\"$(species_symbol)\" compartment=\"default\" boundaryCondition=\"false\"/>\n"
 
         # push -
         +(buffer, tmp_line)
