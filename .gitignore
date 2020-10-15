@@ -1,1 +1,4 @@
 .DS_Store
+
+# Ignore the Manifest.toml file
+Manifest.toml
