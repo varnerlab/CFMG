@@ -1,5 +1,4 @@
 using CFMG, Test
-import Pkg
 
 if (in("JLD", keys(Pkg.installed())) == false)
   Pkg.add("JLD")
