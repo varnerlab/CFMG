@@ -15,10 +15,10 @@ function CFMG_test1()
     make_julia_model("./default1/Network.vff", "./default2")
 
     # run the model
-    # println(pwd())
+    println(pwd())
     cd("./default2/")
-    # println(pwd())
-    include("default2/Static.jl")  # this is interesting!
+    println(pwd())
+    include("default2/Static.jl") 
 
     # verify simulation results
     test1_result = load("../test1_result.jld")["soln_std"]
