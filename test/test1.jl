@@ -1,5 +1,5 @@
 using CFMG, Test
-using Pkg 
+using Pkg
 
 if (in("JLD", keys(Pkg.installed())) == false)
   Pkg.add("JLD")
@@ -18,15 +18,15 @@ function CFMG_test1()
     # println(pwd())
     cd("./default2/")
     # println(pwd())
-    # include("default2/Static.jl")  # this is interesting!
+    include("default2/Static.jl")  # this is interesting!
 
     # verify simulation results
     test1_result = load("../test1_result.jld")["soln_std"]
     # println(static_soln_object)
-    # @assert test1_result.exit_flag == static_soln_object.exit_flag "check exit_flag"
-    # @assert test1_result.status_flag == static_soln_object.status_flag "check status_flag"
-    # @assert norm(test1_result.objective_value - static_soln_object.objective_value) < 1e-8 "Check objective_value"
-    # @assert norm(test1_result.flux - static_soln_object.flux) < 1e-8 "Check flux"
+    @assert test1_result.exit_flag == static_soln_object.exit_flag "check exit_flag"
+    @assert test1_result.status_flag == static_soln_object.status_flag "check status_flag"
+    @assert norm(test1_result.objective_value - static_soln_object.objective_value) < 1e-8 "Check objective_value"
+    @assert norm(test1_result.flux - static_soln_object.flux) < 1e-8 "Check flux"
 
     # remove generated files
     # sleep(60)
