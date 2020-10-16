@@ -1,4 +1,5 @@
 using CFMG, Test
+using Pkg 
 
 if (in("JLD", keys(Pkg.installed())) == false)
   Pkg.add("JLD")
