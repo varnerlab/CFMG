@@ -1,5 +1,6 @@
 using CFMG
 using Test
+using Pkg
 
 include("test1.jl")
 
