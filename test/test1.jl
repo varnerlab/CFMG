@@ -22,7 +22,8 @@ function CFMG_test1()
 
     # verify simulation results
     test1_result = load("../test1_result.jld")["soln_std"]
-    # println(static_soln_object)
+    println(static_soln_object)
+    println(test1_result)
     @assert test1_result.exit_flag == static_soln_object.exit_flag "check exit_flag"
     @assert test1_result.status_flag == static_soln_object.status_flag "check status_flag"
     @assert norm(test1_result.objective_value - static_soln_object.objective_value) < 1e-8 "Check objective_value"
