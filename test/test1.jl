@@ -20,6 +20,7 @@ function CFMG_test1()
     println(pwd())
     println("run Static.jl")
     include("Static.jl") 
+    @assert 0 == 1
 
     # verify simulation results
     println("load std results")
