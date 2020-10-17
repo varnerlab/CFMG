@@ -18,9 +18,11 @@ function CFMG_test1()
     println(pwd())
     cd("./default2/")
     println(pwd())
+    println("run Static.jl")
     include("default2/Static.jl") 
 
     # verify simulation results
+    println("load std results")
     test1_result = load("../test1_result.jld")["soln_std"]
     println(static_soln_object)
     println(test1_result)
