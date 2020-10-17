@@ -19,7 +19,7 @@ function CFMG_test1()
     cd("./default2/")
     println(pwd())
     println("run Static.jl")
-    include("default2/Static.jl") 
+    include("Static.jl") 
 
     # verify simulation results
     println("load std results")
@@ -34,6 +34,7 @@ function CFMG_test1()
     # remove generated files
     # sleep(60)
     cd("../")
+    println(pwd())
     rm("./default1", recursive=true)
     rm("./default2", recursive=true)
     # @assert 0 == 1
