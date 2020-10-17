@@ -8,7 +8,7 @@ end
 using JLD
 
 function CFMG_test1()
-  try
+  # try
     # generate model with CFMG
     generate_default_project("./default1")
     cp("config/Network.vff", "./default1/Network.vff", force=true)
@@ -18,15 +18,13 @@ function CFMG_test1()
     println(pwd())
     cd("./default2/")
     println(pwd())
-    println("run Static.jl")
-    include("Static.jl") 
-    @assert 0 == 1
+    println("run the model")
+    include("default2/Static.jl")  # this is interesting!
 
     # verify simulation results
-    println("load std results")
+    println("load std result")
     test1_result = load("../test1_result.jld")["soln_std"]
     println(static_soln_object)
-    println(test1_result)
     @assert test1_result.exit_flag == static_soln_object.exit_flag "check exit_flag"
     @assert test1_result.status_flag == static_soln_object.status_flag "check status_flag"
     @assert norm(test1_result.objective_value - static_soln_object.objective_value) < 1e-8 "Check objective_value"
@@ -40,9 +38,9 @@ function CFMG_test1()
     rm("./default2", recursive=true)
     # @assert 0 == 1
 
-  catch e
-    return false
-  end
+  # catch e
+  #   return false
+  # end
 
   return true
 end
