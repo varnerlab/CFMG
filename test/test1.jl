@@ -5,6 +5,10 @@ if (in("JLD", keys(Pkg.installed())) == false)
   Pkg.add("JLD")
 end
 
+if (in("Statistics", keys(Pkg.installed())) == false)
+  Pkg.add("Statistics")
+end
+
 using JLD
 
 function CFMG_test1()
