@@ -2,7 +2,7 @@ using Documenter, CFMG
 
 makedocs(
 	doctest = false,
-  modules = [CFMG],
+	modules = [CFMG],
 	sitename = "CFMG.jl",
 	format =:html,
 	pages = [
@@ -15,6 +15,6 @@ makedocs(
 	# format = Documenter.HTML(prettyurls = get(ENV, "JULIA_NO_LOCAL_PRETTY_URLS", nothing) === nothing)
 )
 
-deploydocs(
-    repo = "https://github.com/varnerlab/CFMG.git",
-)
+# deploydocs(
+#     repo = "https://github.com/varnerlab/CFMG.git",
+# )
