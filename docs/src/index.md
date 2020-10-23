@@ -1,4 +1,7 @@
-# index?
+# CFMG.jl
+
+Documentation for CFMG.jl
+
 ![CI](https://github.com/varnerlab/CFMG/workflows/CI/badge.svg?branch=master)
 
 ## Cell Free Model Generator in Julia (CFMG)
