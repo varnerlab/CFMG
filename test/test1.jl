@@ -19,15 +19,19 @@ function CFMG_test1()
     make_julia_model("./default1/Network.vff", "./default2")
 
     # run the model
+    println("change pwd to make model run normal")
     println(pwd())
     cd("./default2/")
     println(pwd())
     println("run the model")
+    print("__DIR__ at test1.jl ")
+    println(@__DIR__)
     include("default2/Static.jl")  # this is interesting!
 
     # verify simulation results
     println("load std result")
-    test1_result = load("../test1_result.jld")["soln_std"]
+    test1_result_path = normpath(joinpath(@__DIR__, "test1_result.jld"))
+    test1_result = load(test1_result_path)["soln_std"]
     println(static_soln_object)
     @assert test1_result.exit_flag == static_soln_object.exit_flag "check exit_flag"
     @assert test1_result.status_flag == static_soln_object.status_flag "check status_flag"
@@ -37,10 +41,14 @@ function CFMG_test1()
     # remove generated files
     # sleep(60)
     cd("../")
-    println(pwd())
     rm("./default1", recursive=true)
     rm("./default2", recursive=true)
     # @assert 0 == 1
+    # println(pwd())
+    # default1 = normpath(joinpath(@__DIR__, "default1/"))
+    # default2 = normpath(joinpath(@__DIR__, "default2/"))
+    # rm(default1, recursive=true)
+    # rm(default2, recursive=true)
 
   # catch e
   #   return false
