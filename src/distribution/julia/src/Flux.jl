@@ -50,25 +50,25 @@ function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float6
     (number_of_species,number_of_fluxes) = size(stoichiometric_matrix);
 
     # # Setup the GLPK problem -
-    lp_problem = GLPK.Prob();
-    GLPK.set_prob_name(lp_problem, "sample");
-    GLPK.set_obj_name(lp_problem, "objective")
+    lp_problem = GLPK.glp_create_prob();
+    GLPK.glp_set_prob_name(lp_problem, "sample");
+    GLPK.glp_set_obj_name(lp_problem, "objective")
 
     # Set solver parameters
-    solver_parameters = GLPK.SimplexParam();
-    GLPK.init_smcp(solver_parameters);
-    solver_parameters.msg_lev = GLPK.MSG_OFF;
+    solver_parameters = GLPK.glp_smcp();
+    GLPK.glp_init_smcp(solver_parameters);
+    solver_parameters.msg_lev = GLPK.GLP_MSG_OFF;
 
     # Are we doing min -or- max?
     if min_flag == true
-    	GLPK.set_obj_dir(lp_problem, GLPK.MIN);
+    	GLPK.glp_set_obj_dir(lp_problem, GLPK.GLP_MIN);
     else
-    	GLPK.set_obj_dir(lp_problem, GLPK.MAX);
+    	GLPK.glp_set_obj_dir(lp_problem, GLPK.GLP_MAX);
     end
 
     # Set the number of constraints and fluxes -
-    GLPK.add_rows(lp_problem, number_of_species);
-    GLPK.add_cols(lp_problem, number_of_fluxes);
+    GLPK.glp_add_rows(lp_problem, number_of_species);
+    GLPK.glp_add_cols(lp_problem, number_of_fluxes);
 
     # Setup flux bounds, and objective function -
     (number_of_fluxes,number_of_bounds) = size(default_bounds_array)
@@ -79,24 +79,24 @@ function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float6
 
     	# Check bounds type ... default is DB -
     	if (flux_upper_bound == flux_lower_bound)
-    		flux_constraint_type = GLPK.FX
+    		flux_constraint_type = GLPK.GLP_FX
     	else
-    		flux_constraint_type = GLPK.DB
+    		flux_constraint_type = GLPK.GLP_DB
     	end
 
     	# flux symbol? (later use name - for now, fake it)
     	flux_symbol = "R_"*string(flux_index)
 
     	# Set the bounds in GLPK -
-    	GLPK.set_col_name(lp_problem, flux_index, flux_symbol);
-    	GLPK.set_col_bnds(lp_problem, flux_index, flux_constraint_type, flux_lower_bound, flux_upper_bound);
+    	GLPK.glp_set_col_name(lp_problem, flux_index, flux_symbol);
+    	GLPK.glp_set_col_bnds(lp_problem, flux_index, flux_constraint_type, flux_lower_bound, flux_upper_bound);
     end
 
     # Setup objective function -
     for (flux_index,obj_coeff) in enumerate(objective_coefficient_array)
 
     	# Set the objective function value in GLPK -
-    	GLPK.set_obj_coef(lp_problem, flux_index, obj_coeff);
+    	GLPK.glp_set_obj_coef(lp_problem, flux_index, obj_coeff);
     end
 
     # Setup problem constraints for the metabolites -
@@ -106,24 +106,24 @@ function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float6
     	species_upper_bound = species_bounds_array[species_index,2]
 
     	# defualt
-    	species_constraint_type = GLPK.FX
+    	species_constraint_type = GLPK.GLP_FX
     	if (species_lower_bound != species_upper_bound)
-    		species_constraint_type = GLPK.DB
+    		species_constraint_type = GLPK.GLP_DB
     	end
 
     	# set the symbol -
     	species_symbol = "x_"*string(species_index)
 
     	# Set the species bounds in GLPK -
-    	GLPK.set_row_name(lp_problem, species_index, species_symbol);
-    	GLPK.set_row_bnds(lp_problem, species_index, species_constraint_type, species_lower_bound, species_upper_bound);
+    	GLPK.glp_set_row_name(lp_problem, species_index, species_symbol);
+    	GLPK.glp_set_row_bnds(lp_problem, species_index, species_constraint_type, species_lower_bound, species_upper_bound);
 
     end
 
     # Setup the stoichiometric array -
     counter = 1;
-    row_index_array = zeros(Int,number_of_species*number_of_fluxes);
-    col_index_array = zeros(Int,number_of_species*number_of_fluxes);
+    row_index_array = zeros(Cint,number_of_species*number_of_fluxes);
+    col_index_array = zeros(Cint,number_of_species*number_of_fluxes);
     species_index_vector = collect(1:number_of_species);
     flux_index_vector = collect(1:number_of_fluxes);
     flat_stoichiometric_array = zeros(Float64,number_of_species*number_of_fluxes);
@@ -135,28 +135,28 @@ function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float6
     		counter+=1;
     	end
     end
-    GLPK.load_matrix(lp_problem, number_of_species*number_of_fluxes, row_index_array, col_index_array, flat_stoichiometric_array);
+    GLPK.glp_load_matrix(lp_problem, number_of_species*number_of_fluxes, GLPK.offset(row_index_array), GLPK.offset(col_index_array), GLPK.offset(flat_stoichiometric_array));
 
     # Call the solver -
-    exit_flag = GLPK.simplex(lp_problem, solver_parameters);
+    exit_flag = GLPK.glp_simplex(lp_problem, solver_parameters);
 
     # Get the objective function value -
-    objective_value = GLPK.get_obj_val(lp_problem);
+    objective_value = GLPK.glp_get_obj_val(lp_problem);
 
     # Get the calculated flux values from GLPK -
     calculated_flux_array = zeros(Float64,number_of_fluxes);
     for flux_index in flux_index_vector
-    	calculated_flux_array[flux_index] = GLPK.get_col_prim(lp_problem, flux_index);
+    	calculated_flux_array[flux_index] = GLPK.glp_get_col_prim(lp_problem, flux_index);
     end
 
     # Get the dual values -
     dual_value_array = zeros(Float64,number_of_fluxes);
     for flux_index in flux_index_vector
-    	dual_value_array[flux_index] = GLPK.get_col_dual(lp_problem, flux_index);
+    	dual_value_array[flux_index] = GLPK.glp_get_col_dual(lp_problem, flux_index);
     end
 
     # is this solution optimal?
-    status_flag = GLPK.get_status(lp_problem)
+    status_flag = GLPK.glp_get_status(lp_problem)
 
     # Calculate the uptake array -
     uptake_array = stoichiometric_matrix*calculated_flux_array;
