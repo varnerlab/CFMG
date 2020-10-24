@@ -1,6 +1,6 @@
 ![CI](https://github.com/varnerlab/CFMG/workflows/CI/badge.svg?branch=master)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://https://varnerlab.github.io/CFMG/dev/)
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://zzp12.github.io/CFMG/stable)
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://varnerlab.github.io/CFMG/stable)
 
 ## Cell Free Model Generator in Julia (CFMG)
 
