@@ -7,12 +7,11 @@ Each part has its start and end marks, and specific syntactic format for describ
 
 ## TXTL-SEQUENCE
 
-item | des
+Item | Description
 ---: | :---
 Start | \#TXTL-SEQUENCE::START
 End | \#TXTL-SEQUENCE::STOP
 Format | {X\|L},\{symbol1\},\{symbol2\}::sequence;
-Argument | Description
 {X\|L} | 'X' denotes transcription, while 'L' denoting translation
 {symbol1} | gene or protein symbol
 {symbol2} | 'RX' or 'RL' denoting RNAP\_symbol or Ribosome\_symbol, respectively
@@ -23,12 +22,11 @@ Example | {X,cI\_ssrA,RX::atgagcacaaaaaagaaaccattaacacaagagcagcttgaggacgcacgtcgc
 
 ## METABOLISM
 
-item | des
+Item | Description
 ---: | :---
 Start| \#METABOLISM::START
 End | \#METABOLISM::STOP
 Format | {name, [ECs],reactant,product,is\_reversible}
-Argument | Description
 name | unique string denoting reaction name
 ECs | ';' delimited set of ec numbers, use '[]' if no EC
 reactant | reactant symbols connected by '+', metabolite symbols can not have special chars or spaces, stochiometric coefficients are pre-pended to metabolite symbol
@@ -39,12 +37,11 @@ Example | {R\_A\_syn\_2,[6.3.4.13],M\_atp\_c+M\_5pbdra+M\_gly\_L\_c,M\_adp\_c+M\
 
 ## Gene regulatory network
 
-item | des
+Item | Description
 ---: | :---
 Start | \#GRN::START
  End | \#GRN::STOP
 Format | actors action target
-Argument | Description
 actors | comma ',' delimited list of actors
 action | activate, activates, activated, induce, induces, induced, inhibit, inhibits, inhibited, repress, represses, represses
 target | the target
