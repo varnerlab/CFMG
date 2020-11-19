@@ -45,5 +45,4 @@ Example | {R\_A\_syn\_2,[6.3.4.13],M\_atp\_c+M\_5pbdra+M\_gly\_L\_c,M\_adp\_c+M\
 |actors | comma ',' delimited list of actors |
 |action | activate, activates, activated, induce, induces, induced, inhibit, inhibits, inhibited, repress, represses, represses |
 |target | the target |
-|Example | {cI\_ssrA inhibits deGFP\_ssrA}
-           {s70 activates deGFP\_ssrA}|
+|Example | <br />{cI\_ssrA inhibits deGFP\_ssrA}<br /> <br />{s70 activates deGFP\_ssrA}<br />|
