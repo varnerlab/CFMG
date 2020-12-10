@@ -9,10 +9,10 @@ makedocs(
     modules = [CFMG],
     pages = [
     "Home" => "index.md",
+    "Introduction" => "introduction.md",
     "Installation" => "installation.md",
     "VFF format" => "vffformat.md",
     "Examples" => "example.md",
-    "Introduction" => "introduction.md"
     ],
 )
 
