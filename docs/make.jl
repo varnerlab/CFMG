@@ -11,9 +11,7 @@ makedocs(
     "Home" => "index.md",
     "Installation" => "installation.md",
     "VFF format" => "vffformat.md",
-    "Examples" => Any[
-        "Example 1" => "examples/example1.md",
-        ]
+    "Examples" => "example.md",
     ],
 )
 
