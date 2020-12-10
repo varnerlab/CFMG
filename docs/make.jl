@@ -12,6 +12,7 @@ makedocs(
     "Installation" => "installation.md",
     "VFF format" => "vffformat.md",
     "Examples" => "example.md",
+    "Introduction" => "introduction.md"
     ],
 )
 
