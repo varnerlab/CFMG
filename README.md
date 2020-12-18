@@ -38,6 +38,7 @@ add content to the ``Network.vff`` model file. Lastly, issue the command ``make_
     julia> using CFMG
     julia> make_julia_model(<path to model file>, <path where files will be written>)
 
+Note that `path where files will be written` should be different from where `model file` is. 
 In addition to [Julia](http://julialang.org), you can generate cell free model code for the [Octave](https://www.gnu.org/software/octave/), [Python 3.x](https://www.python.org) and [COBRA package in MATLAB](https://opencobra.github.io/cobratoolbox/stable/) environments. In these cases, issue the language specific commands, ``make_octave_model``, ``make_python_model`` or ``make_matlab_model``. The [MATLAB/COBRA](https://opencobra.github.io/cobratoolbox/stable/) command ``make_matlab_model`` generates a COBRA-compatible [MATLAB MAT-file](https://www.mathworks.com/help/matlab/import_export/mat-file-versions.html) while the other commands generate fully editable source code. 
 
 ### Are there other packages required to run the model code?
